@@ -143,16 +143,11 @@ function searchBlogTitles() {
 // });
 
 function validateForm() {
-let fname = document.forms["msgRecipientForm"]["fname"].value;
-let lname = document.forms["msgRecipientForm"]["lname"].value; 
+let name = document.forms["msgRecipientForm"]["name"].value;
 let email = document.forms["msgRecipientForm"]["email"].value;
 let msg = document.forms["msgRecipientForm"]["message"].value; 
 
-if (fname == ""){
-  alert("Name must be filled out");
-  return false;
-}
-if (lname == ""){
+if (name == ""){
   alert("Name must be filled out");
   return false;
 }
