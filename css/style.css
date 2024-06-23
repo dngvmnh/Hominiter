@@ -145,7 +145,7 @@ body.dark-theme{
 
 .header {
   background-color: var(--menu-background-color);
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;
   width: 100%;
