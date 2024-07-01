@@ -407,7 +407,7 @@ body.dark-theme{
   }
   
   .featured-container::before {
-    display: flex;
+    display: fixed;
     flex-direction: column;
     content: "Featured post";
     position: absolute;
