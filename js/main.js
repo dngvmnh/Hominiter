@@ -30,44 +30,6 @@ const toggleMenu = () =>{
 menuToggleIcon.addEventListener('click', toggleMenu);
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const paragraphs = document.querySelectorAll("p");
-
-  const updateParagraphs = () => {
-    paragraphs.forEach(p => {
-      p.innerHTML = p.innerHTML.split(" ").map(w => 
-        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
-      ).join(" ");
-    });
-  };
-
-  updateParagraphs();
-
-  paragraphs.forEach(p => {
-    p.addEventListener("input", updateParagraphs);
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const paragraphs = document.querySelectorAll("em");
-
-  const updateParagraphs = () => {
-    paragraphs.forEach(em => {
-      em.innerHTML = em.innerHTML.split(" ").map(w => 
-        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
-      ).join(" ");
-    });
-  };
-
-  updateParagraphs();
-
-  paragraphs.forEach(em => {
-    p.addEventListener("input", updateParagraphs);
-  });
-});
-
-
 // Switch theme/add to local storage
 const body = document.body;
 const themeToggleBtn = selectElement('#theme-toggle-btn');
