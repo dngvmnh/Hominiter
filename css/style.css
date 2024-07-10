@@ -143,8 +143,14 @@ p {
 span {
   text-align: left;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100; /* Regular weight, change as needed */
-  font-style: normal; /* Change to italic if needed */
+  font-weight: 100;
+  font-style: normal;
+}
+
+em {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; 
 
 }
 
