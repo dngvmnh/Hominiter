@@ -139,6 +139,11 @@ h4 {
 p {
   text-align: left;
 }
+
+span {
+  text-align: left;
+}
+
 html{
     font-size: 62.5%;
 }
