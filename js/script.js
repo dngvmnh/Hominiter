@@ -29,44 +29,90 @@ const toggleMenu = () =>{
 
 menuToggleIcon.addEventListener('click', toggleMenu);
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const paragraphs = document.querySelectorAll("p");
 
-document.addEventListener("DOMContentLoaded", () => {
+//   const updateParagraphs = () => {
+//     paragraphs.forEach(p => {
+//       p.innerHTML = p.innerHTML.split(" ").map(w => 
+//         `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
+//       ).join(" ");
+//     });
+//   };
+
+//   updateParagraphs();
+
+//   paragraphs.forEach(p => {
+//     p.addEventListener("input", updateParagraphs);
+//   });
+  
+// });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const paragraphs = document.querySelectorAll("em");
+
+//   const updateParagraphs = () => {
+//     paragraphs.forEach(em => {
+//       em.innerHTML = em.innerHTML.split(" ").map(w => 
+//         `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
+//       ).join(" ");
+//     });
+//   };
+
+//   updateParagraphs();
+
+//   paragraphs.forEach(em => {
+//     p.addEventListener("input", updateParagraphs);
+//   });
+// });
+
+// Function to update paragraphs
+const updateParagraphs = (applyFormat) => {
   const paragraphs = document.querySelectorAll("p");
-
-  const updateParagraphs = () => {
-    paragraphs.forEach(p => {
-      p.innerHTML = p.innerHTML.split(" ").map(w => 
-        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
-      ).join(" ");
-    });
-  };
-
-  updateParagraphs();
-
   paragraphs.forEach(p => {
-    p.addEventListener("input", updateParagraphs);
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const paragraphs = document.querySelectorAll("em");
-
-  const updateParagraphs = () => {
-    paragraphs.forEach(em => {
-      em.innerHTML = em.innerHTML.split(" ").map(w => 
-        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")} `
+    if (applyFormat) {
+      if (!p.dataset.original) {
+        p.dataset.original = p.innerHTML;
+      }
+      p.innerHTML = p.dataset.original.split(" ").map(w => 
+        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")}`
       ).join(" ");
-    });
-  };
-
-  updateParagraphs();
-
-  paragraphs.forEach(em => {
-    p.addEventListener("input", updateParagraphs);
+    } else {
+      p.innerHTML = p.dataset.original || p.innerHTML;
+    }
   });
+};
+
+// Function to update em elements
+const updateEmElements = (applyFormat) => {
+  const emElements = document.querySelectorAll("em");
+  emElements.forEach(em => {
+    if (applyFormat) {
+      if (!em.dataset.original) {
+        em.dataset.original = em.innerHTML;
+      }
+      em.innerHTML = em.dataset.original.split(" ").map(w => 
+        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")}`
+      ).join(" ");
+    } else {
+      em.innerHTML = em.dataset.original || em.innerHTML;
+    }
+  });
+};
+
+// Event listeners for DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  updateParagraphs(true);
+  updateEmElements(true);
 });
 
+// Add event listener to bio button
+const bioToggleBtn = document.getElementById("bio-toggle-btn");
+bioToggleBtn.addEventListener("click", () => {
+  const isFormatted = bioToggleBtn.classList.toggle("formatted");
+  updateParagraphs(isFormatted);
+  updateEmElements(isFormatted);
+});
 
 // Switch theme/add to local storage
 const body = document.body;
