@@ -142,6 +142,10 @@ p {
 
 span {
   text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; /* Regular weight, change as needed */
+  font-style: normal; /* Change to italic if needed */
+
 }
 
 html{

@@ -100,10 +100,28 @@ const updateEmElements = (applyFormat) => {
   });
 };
 
+// Function to update span elements
+const updateSpanElements = (applyFormat) => {
+  const emElements = document.querySelectorAll("span");
+  emElements.forEach(span => {
+    if (applyFormat) {
+      if (!span.dataset.original) {
+        span.dataset.original = span.innerHTML;
+      }
+      span.innerHTML = span.dataset.original.split(" ").map(w => 
+        `<b>${w.split("").slice(0, Math.ceil(w.length / 2)).join("")}</b>${w.split("").slice(Math.ceil(w.length / 2), w.length).join("")}`
+      ).join(" ");
+    } else {
+      span.innerHTML = span.dataset.original || span.innerHTML;
+    }
+  });
+};
+
 // Event listeners for DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
   updateParagraphs(true);
   updateEmElements(true);
+  updateSpanElements(true);
 });
 
 // Add event listener to bio button
@@ -112,6 +130,8 @@ bioToggleBtn.addEventListener("click", () => {
   const isFormatted = bioToggleBtn.classList.toggle("formatted");
   updateParagraphs(isFormatted);
   updateEmElements(isFormatted);
+  updateSpanElements(isFormatted);
+
 });
 
 // Switch theme/add to local storage
