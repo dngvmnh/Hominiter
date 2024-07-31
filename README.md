@@ -1,5 +1,8 @@
 # Hominiter: Educational Science Blog with Pioneering Reading Experience
 
+![image](https://github.com/user-attachments/assets/ba46ec0b-1396-4b28-ab1d-1920502811f8)
+
+
 As the founder and director of **Hominiter**, I embarked on a journey to create a dynamic and engaging educational blog tailored for high school students. Launched from May to October 2024, Hominiter stands as a testament to my commitment to making science accessible and captivating.
 
 ## Concept and Vision
