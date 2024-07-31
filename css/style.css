@@ -241,7 +241,7 @@ body.dark-theme{
   width: 100%;
   z-index: 999;
   border: solid var(--text-color) 1px;
-  border-radius: 20px 20px 20px 20px; 
+  border-radius: 10px 10px 10px 10px; 
   padding: 1rem 1; 
 
   transform: translateY(95px);
